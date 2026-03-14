@@ -1,0 +1,23 @@
+# Render.com Blueprint — BlockPay
+# This defines a single web service that builds the frontend
+# and serves it from the Express backend.
+
+services:
+  - type: web
+    name: blockpay
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && npm install"
+    startCommand: "cd backend && node server.js"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NETWORK
+        value: simulation
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: "4000"
+      - key: FRONTEND_URL
+        value: https://blockpay.onrender.com

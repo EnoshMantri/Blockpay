@@ -1,0 +1,15 @@
+{
+  "name": "blockpay",
+  "version": "1.0.0",
+  "description": "BlockPay: Blockchain-Based Settlement Framework for Cross-Border Remittances",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "start": "npm run start:backend & npm run start:frontend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "npm run install:all && npm run start",
+    "test:contracts": "cd contracts && npm install && npx hardhat test",
+    "demo:seed": "node scripts/seed-demo.js"
+  }
+}

@@ -1,0 +1,31 @@
+﻿
+==========================================
+  BlockPay Role Auth Verification
+==========================================
+
+--- Admin Seeding ---
+[PASS] Admin account ready (201)
+
+--- Register Regular User ---
+[PASS] Regular user ready (201)
+
+--- Login ---
+[PASS] Regular user login => expected=200 actual=200
+       Role in token: user
+[PASS] Admin user login => expected=200 actual=200
+       Role in token: admin
+
+--- Role Enforcement on /api/admin/stats ---
+[PASS] No token => 401 => expected=401 actual=401
+[PASS] Regular user => 403 => expected=403 actual=403
+[PASS] Admin user => 200 => expected=200 actual=200
+
+--- Simulate Transaction (regular user) ---
+[PASS] Simulation returns 201 => expected=201 actual=201
+       TX id: b6957f05-ed58-4d92-ae19-34fc106446d3
+       Stages returned: 6
+
+==========================================
+  ALL TESTS PASSED
+==========================================
+

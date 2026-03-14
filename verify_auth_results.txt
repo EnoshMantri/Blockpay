@@ -1,0 +1,28 @@
+﻿
+============================================
+  BlockPay Auth Verification Suite
+============================================
+
+--- Protected Routes (no token) ---
+[PASS] http://localhost:4000/api/admin/stats => expected=401 actual=401
+[PASS] http://localhost:4000/api/analytics/volume => expected=401 actual=401
+[PASS] http://localhost:4000/api/analytics/fees => expected=401 actual=401
+[PASS] http://localhost:4000/api/analytics/corridors => expected=401 actual=401
+[PASS] http://localhost:4000/api/analytics/compliance => expected=401 actual=401
+[PASS] http://localhost:4000/api/settlement => expected=401 actual=401
+
+--- Registration ---
+[PASS] Already registered (400 expected on re-register)
+
+--- Login ---
+[PASS] Login returned JWT token
+
+--- Protected Routes (with token) ---
+[PASS] http://localhost:4000/api/admin/stats => expected=200 actual=200
+[PASS] http://localhost:4000/api/analytics/volume => expected=200 actual=200
+[PASS] http://localhost:4000/api/analytics/fees => expected=200 actual=200
+[PASS] http://localhost:4000/api/analytics/corridors => expected=200 actual=200
+[PASS] http://localhost:4000/api/analytics/compliance => expected=200 actual=200
+[PASS] http://localhost:4000/api/settlement => expected=200 actual=200
+============================================
+

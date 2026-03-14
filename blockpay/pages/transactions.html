@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockPay — Transactions</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <div class="bg-grid"></div>
+
+  <aside class="sidebar">
+    <div class="logo"><span class="logo-mark">⬡</span><span class="logo-text">BlockPay</span></div>
+    <nav class="side-nav">
+      <a href="dashboard.html" class="side-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="send.html" class="side-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+        Send Money
+      </a>
+      <a href="transactions.html" class="side-link active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,11 12,14 22,4"/><path d="M21,12v7a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V5A2,2,0,0,1,5,3h11"/></svg>
+        Transactions
+      </a>
+      <a href="kyc.html" class="side-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        KYC Status
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="wallet-pill" id="walletPill"><div class="wallet-dot"></div><span id="walletAddress">0x...loading</span></div>
+      <button class="disconnect-btn" id="disconnectBtn">Disconnect</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <div>
+        <h1 class="dash-title">Transaction History</h1>
+        <p class="dash-sub">All transfers verified on-chain</p>
+      </div>
+      <a href="send.html" class="btn-primary small">+ New Transfer</a>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="ftab active" onclick="filterTx('all', this)">All</button>
+        <button class="ftab" onclick="filterTx('sent', this)">Sent</button>
+        <button class="ftab" onclick="filterTx('received', this)">Received</button>
+      </div>
+      <input class="search-input" type="text" placeholder="Search by address, name..." id="searchInput" oninput="searchTx(this.value)" />
+    </div>
+
+    <!-- Transactions Table -->
+    <div class="tx-table-card">
+      <div class="tx-table-header">
+        <span>Transaction</span>
+        <span>Recipient</span>
+        <span>Country</span>
+        <span>Amount</span>
+        <span>Fee</span>
+        <span>Status</span>
+        <span>Hash</span>
+      </div>
+      <div class="tx-table-body" id="txTableBody">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/wallet.js"></script>
+  <script src="../js/transactions.js"></script>
+</body>
+</html>
